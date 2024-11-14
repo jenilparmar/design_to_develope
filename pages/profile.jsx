@@ -1,6 +1,10 @@
 import Middle from "@/Jenil/Components/Profile.jsx/Middle";
 import Rear from "@/Jenil/Components/Profile.jsx/Rear";
 import React from "react";
+import Below from "@/Jenil/Components/Profile.jsx/Below";
+import Middle from "@/Jenil/Components/Profile.jsx/Middle";
+import Rear from "@/Jenil/Components/Profile.jsx/Rear";
+import React from "react";
 
 const profile = () => {
   return (
