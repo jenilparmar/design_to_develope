@@ -2,7 +2,7 @@ import React from "react";
 
 const Middle = () => {
   return (
-    <div className="w-2/3 h-screen bg-[#29274c] flex flex-col">
+    <div className="w-2/3 h-fit bg-[#29274c] flex flex-col">
       <div
         className="w-full  h-80"
         style={{
