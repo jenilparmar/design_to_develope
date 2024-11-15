@@ -71,9 +71,9 @@ export default function Galler() {
       <div className="  ">
         <div className="h-36"></div>
         <div className="h-44"></div>
-        <div className=" w-fit gap-y-10  bg-[#29274c] flex px-9 flex-wrap ">
+        <div className="pins bg-[#29274c] px-9">
           {image.map((item) => {
-            return <Card2 li={item} />;
+            return <Card2 li={item} key={item} />;
           })}
         </div>
       </div>
