@@ -16,7 +16,7 @@ export const addCodeToCookieArray = (code) => {
   }
 
   // Update the cookies
-  Cookies.set('Thoughtscodes', JSON.stringify(codesArray));
+  Cookies.set('Thoughtscodes', JSON.stringify(codesArray), { expires: 30 });
 };
 
 // Function to get the array of codes from cookies

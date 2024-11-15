@@ -41,7 +41,7 @@ export default async function handler(req, res) {
       }
 
       // Return the found document, including the base64Images field
-      res.status(200).json({ Thoughts: document.toughts || [] });
+      res.status(200).json({ Thoughts: document.thoughts || [] });
     } catch (error) {
       console.error("Error connecting to MongoDB or retrieving data:", error);
       res.status(500).json({ message: "Something went wrong!" });

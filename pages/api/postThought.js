@@ -36,7 +36,7 @@ export default async function handler(req, res) {
                 // Update the document with the matching 'code', pushing the new thought to the `thoughts` array
                 const result = await collection.updateOne(
                     { code: code },
-                    { $push: { toughts: thought } },
+                    { $push: { thoughts: thought } },
                     { upsert: true } // Creates a new document if no matching code is found
                 );
 
