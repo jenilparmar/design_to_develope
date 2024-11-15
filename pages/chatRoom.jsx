@@ -5,9 +5,9 @@ import React from 'react'
 
 const chatRoom = () => {
   return (
-    <div className='w-full h-screen bg-[#29274c] flex flex-row'>
+    <div className='w-full h-screen bg-[#29274c] flex flex-row justify-between'>
       <TableOfChats/>
-      <div className='flex flex-col'>
+      <div className='w-10/12 flex flex-col'>
       <HeaderChatRoom/>
       <Thoughts/>
       </div>
