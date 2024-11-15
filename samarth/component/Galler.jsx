@@ -1,6 +1,5 @@
 import { CiSearch } from "react-icons/ci";
 import Card from "./Card";
-import Card2 from "./card2";
 let top = [
   "/gallery/1.png",
   "/gallery/2.png",
