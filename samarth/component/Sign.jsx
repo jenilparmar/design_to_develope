@@ -3,7 +3,7 @@ import { CiMail } from "react-icons/ci";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-export default function Log() {
+export default function Sign() {
   return (
     <div
       className={`relative   flex justify-center items-center shadow-2xl robo`}
@@ -21,8 +21,8 @@ export default function Log() {
       <div className="absolute inset-0 flex flex-col items-start justify-center ml-9 space-y-6 text-white px-2 py-12">
         {/* Navigation Links */}
         <div className="text-sm mb-6">
-          <span className="text-gray-400">Log In </span>/{" "}
-          <span className="font-bold"> Sign Up</span>
+          <span className="text-gray-400">Sign Up </span>/{" "}
+          <span className=" font-bold">Log In</span>
         </div>
 
         <div className="space-y-4 max-w-xs">
@@ -32,20 +32,11 @@ export default function Log() {
             </span>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="User name / Email"
               className="bg-transparent robo  text-white placeholder-gray-400 focus:outline-none w-full"
             />
           </div>
-          <div className="flex items-center border-b border-gray-400 py-2">
-            <span className="mr-2">
-              <CiMail></CiMail>
-            </span>
-            <input
-              type="email"
-              placeholder="Email"
-              className="bg-transparent robo text-white placeholder-gray-400 focus:outline-none w-full"
-            />
-          </div>
+
           <div className="flex items-center border-b border-gray-400 py-2">
             <span className="mr-2">
               <IoLockClosedOutline></IoLockClosedOutline>
@@ -59,8 +50,8 @@ export default function Log() {
         </div>
 
         <button className="mt-16  w-72 h-16 flex items-center justify-center bg-[#5E346E] shadow-2xl bg-opacity-20 text-white py-2 px-8 rounded-full">
-          SIGN UP
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          LOG IN NOW
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           {
             <MdKeyboardArrowRight className="text-[#7A75B7 ] size-8"></MdKeyboardArrowRight>
           }

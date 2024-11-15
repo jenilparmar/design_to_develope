@@ -19,6 +19,7 @@ module.exports = {
   },
   fontFamily: {
     body: ["Inter", "sans-serif"],
+    login: ["Roboto", "serif"],
   },
   plugins: [],
 };
