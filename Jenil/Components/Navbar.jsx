@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="w-20 px-2 h-screen bg-[#373562] flex flex-col gap-4 justify-start absolute left-0">
+    <div className="w-20 px-2 h-screen bg-[#373562] flex flex-col gap-4 justify-start fixed left-0">
       <div
         className="h-16 w-16 active:scale-95 self-center transition-all duration-150"
         style={{

@@ -1,4 +1,5 @@
 import React from "react";
+import Below from "./Below";
 
 const Middle = () => {
   return (
@@ -57,6 +58,7 @@ const Middle = () => {
           Thought Galleries
         </p>
       </div>
+    
     </div>
   );
 };
