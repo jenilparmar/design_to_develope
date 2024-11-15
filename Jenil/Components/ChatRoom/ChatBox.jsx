@@ -3,7 +3,7 @@ import React from 'react'
 const ChatBox = ({url , name} ) => {
   return (
    <>
-    <div className='w-full h-10 flex flex-row my-2'>
+    <div className='w-full h-fit flex flex-row my-2 hover:bg-[#534fa081] py-2 rounded-xl'>
       
       <div className='h-10 w-10 rounded-full self-center' style={{
         backgroundImage:`url(${url})`,

@@ -29,7 +29,9 @@
     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
   }
 }
-
+.pons{
+  column-count: 4;
+}
 .pins {
   column-count: 5;
 }

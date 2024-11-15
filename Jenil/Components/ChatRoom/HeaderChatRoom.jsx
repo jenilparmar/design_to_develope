@@ -14,11 +14,11 @@ const HeaderChatRoom = () => {
               Explore the most viewed...
             </p>
           </div>
-          <p className="text-[#f5f5f5e2] py-2 px-8 font-medium mr-4">
+          <p className="text-[#f5f5f5e2] py-2 font-medium mr-4">
             Chutur Putur Masale
           </p>
         </div>
-        <div className="w-full h-fit py-2 flex flex-row justify-evenly">
+        <div className="w-full h-fit py-2 flex flex-row justify-between px-8">
           <ChatText
             text={
               "Hi, I'm Jenil! We are doing this to win cool prizes!! Yeah, we know we won't be getting any prizes from college as expected, but still, the taste of winning will be good!!"
@@ -38,6 +38,7 @@ const HeaderChatRoom = () => {
             text={
               "Honestly, I don't care about the prizes as much as just having fun with the whole group!"
             }
+            
           />
         </div>
       </div>

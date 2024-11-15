@@ -3,7 +3,7 @@ import ThoughtOfDay from "./ThoughtOfDay";
 
 const Thoughts = () => {
   return (
-    <div className="w-full h-screen overflow-y-scroll overflow-x-hidden self-end flex flex-wrap px-8 justify-evenly">
+    <div className="pons w-full h-screen overflow-y-scroll overflow-x-hidden self-end  ">
       <ThoughtOfDay
         text={
           "Assignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiya."
@@ -11,7 +11,7 @@ const Thoughts = () => {
       />
       <ThoughtOfDay
         text={
-          "Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai."
+          "Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai.Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai.Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai.Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai.Doston ke saath baith ke time spent karna, ek movie dekhna, yeh sab pressure ko door karne ka tareeka hai."
         }
       />
       <ThoughtOfDay
@@ -36,7 +36,7 @@ const Thoughts = () => {
       />
       <ThoughtOfDay
         text={
-          "Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai."
+          "Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai.Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai.Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai.Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai.Kabhi kabhi, bas thoda relax karna aur apne aapko sabse pehle rakhna bhi zaroori hota hai."
         }
       />
       <ThoughtOfDay
@@ -56,7 +56,7 @@ const Thoughts = () => {
       />
       <ThoughtOfDay
         text={
-          "Assignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori hai."
+          "Assignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori haiAssignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori haiAssignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori haiAssignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori haiAssignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori haiAssignments ke deadlines thodi scary hoti hain, par friends ke saath thoda chill zaroori hai."
         }
       />
       <ThoughtOfDay
@@ -90,7 +90,7 @@ const Thoughts = () => {
       />
       <ThoughtOfDay
         text={
-          "College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai."
+          "College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai.College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai.College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai.College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai.College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai.College ke naye doston ne aaj zindagi mein thoda aur rang bhar diya hai."
         }
       />
       <ThoughtOfDay
@@ -100,7 +100,7 @@ const Thoughts = () => {
         text={"Assignments ka pressure hai, lekin break bhi toh zaroori hai!"}
       />
       <ThoughtOfDay
-        text={"Kal ka stress chhod kar aaj ke din mein khush rehna chahiye."}
+        text={"Kal ka stress chhod kar aaj ke din mein khush rehna chahiye.Kal ka stress chhod kar aaj ke din mein khush rehna chahiye.Kal ka stress chhod kar aaj ke din mein khush rehna chahiye.Kal ka stress chhod kar aaj ke din mein khush rehna chahiye.Kal ka stress chhod kar aaj ke din mein khush rehna chahiye.Kal ka stress chhod kar aaj ke din mein khush rehna chahiye."}
       />
       <ThoughtOfDay
         text={
@@ -117,7 +117,7 @@ const Thoughts = () => {
       />
       <ThoughtOfDay
         text={
-          "Assignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiya."
+          "Assignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiyassignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiyassignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiyassignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiyassignments ka pressure tha, deadlines thi, but aaj ke din ne apna alag hi level set kiya."
         }
       />
       <ThoughtOfDay
