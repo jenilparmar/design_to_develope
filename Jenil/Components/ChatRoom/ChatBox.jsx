@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const ChatBox = ({ url, name, setActiveCode }) => {
+const ChatBox = ({ url, code, setActiveCode }) => {
+  const [name, setName] = useState(null);
+  useEffect(() => {
+
+    const fetchThoughts = async () => {
+      try {
+        const response = await fetch("/api/getThought", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ code: code }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch thoughts");
+        }
+
+        const data = await response.json();
+
+        setName(data.nameOfRoom);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching thoughts:", error);
+      }
+    };
+
+    fetchThoughts();
+  }, []);
   return (
     <>
       <div

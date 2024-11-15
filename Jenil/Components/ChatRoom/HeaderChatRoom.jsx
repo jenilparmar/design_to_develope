@@ -16,7 +16,7 @@ const HeaderChatRoom = ({ activeCode }) => {
           </div>
           <div className="flex flex-col-reverse justify-center">
             <p className="self-end mr-4 text-[#fff]">
-              {(activeCode + "").toUpperCase()}
+              {(activeCode + "").toLocaleLowerCase()}
             </p>
             <p className="text-[#f5f5f5e2] font-medium mr-4">
               Chutur Putur Masale

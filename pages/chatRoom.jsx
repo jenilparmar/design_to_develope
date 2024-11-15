@@ -11,6 +11,7 @@ const ChatRoom = () => {
   const [thoughtsArray, setThoughtsArray] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const [nameofRoom, setNameOfRoom] = useState(null);
   useEffect(() => {
     const arr = getCodesFromCookie();
     setCodes(arr);
@@ -38,6 +39,7 @@ const ChatRoom = () => {
         const data = await response.json();
 
         setThoughtsArray(data.Thoughts);
+        setNameOfRoom(data.nameOfRoom);
         console.log(data);
 
         setLoading(false);
@@ -58,9 +60,13 @@ const ChatRoom = () => {
 
   return (
     <div className="w-full h-screen bg-[#29274c] flex flex-row justify-between">
-      <TableOfChats codes={codes} setActiveCode={setActiveCode} />
+      <TableOfChats
+        name={nameofRoom}
+        codes={codes}
+        setActiveCode={setActiveCode}
+      />
       <div className="w-10/12 flex flex-col">
-        <HeaderChatRoom activeCode={activeCode} />
+        <HeaderChatRoom activeCode={nameofRoom} />
         <Thoughts thoughts={thoughtsArray} loading={loading} />
       </div>
     </div>

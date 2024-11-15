@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ChatBox from "./ChatBox";
 
 
-const TableOfChats = ({codes  , setActiveCode}) => {
+const TableOfChats = ({codes  , setActiveCode , name}) => {
   
 
 
@@ -22,7 +22,8 @@ const TableOfChats = ({codes  , setActiveCode}) => {
             url={
               "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             }
-            name={code}
+            code={code}
+            name={name}
           />
         ))}
     </div>
