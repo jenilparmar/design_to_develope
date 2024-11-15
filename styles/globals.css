@@ -1,32 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Grey+Qo&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
-* {
-    --sb-track-color: #232E33;
-    --sb-thumb-color: #534fa0;
-    --sb-size: 2px;
-  }
-  
-  *::-webkit-scrollbar {
-    width: var(--sb-size)
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 3px;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 3px;
-    
-  }
-  
-  @supports not selector(::-webkit-scrollbar) {
-    * {
-      scrollbar-color: var(--sb-thumb-color)
-                       var(--sb-track-color);
-    }
-  }
