@@ -1,7 +1,7 @@
 import { CiSearch } from "react-icons/ci";
 import Card from "./Card";
 export default function Top() {
-  let top = [
+  let pi = [
     "/gallery/1.png",
     "/gallery/2.png",
     "/gallery/3.png",
@@ -38,7 +38,7 @@ export default function Top() {
 
       <div className="flex justify-between">
         <div className="popular h-[158px]  flex  px-9 gap">
-          {top.map((item) => {
+          {pi.map((item) => {
             return <Card li={item} />;
           })}
         </div>
