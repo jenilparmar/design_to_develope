@@ -1,5 +1,4 @@
-
-import Top from "./top";
+import Top from "./LA";
 
 import Card2 from "./Card2";
 let image = [

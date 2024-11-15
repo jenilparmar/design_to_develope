@@ -1,6 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import Card from "./Card";
-export default function Top() {
+export default function LA() {
   let pi = [
     "/gallery/1.png",
     "/gallery/2.png",
