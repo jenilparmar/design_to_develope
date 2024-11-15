@@ -1,7 +1,6 @@
-import { CiSearch } from "react-icons/ci";
-import Card from "./Card";
+
 import Top from "./top";
-import Mid from "./Mid";
+
 import Card2 from "./Card2";
 let image = [
   "/gallery/1.png",
