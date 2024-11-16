@@ -9,6 +9,7 @@ export default function LA() {
     "/gallery/5.png",
     "/gallery/6.png",
     "/gallery/7.png",
+    "/gallery/4.png",
   ];
 
   return (
