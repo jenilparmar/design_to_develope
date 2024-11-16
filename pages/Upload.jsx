@@ -10,6 +10,7 @@ const Upload = () => {
   const [section, setSection] = useState("Thought"); // Track the current section
   const [image, setImage] = useState(null); // Base64 image
   const [caption, setCaption] = useState(""); // Image caption
+  const [loading, setLoading] = useState(false); // Track upload status
 
   useEffect(() => {
     const arr = getCodesFromCookie();
@@ -36,14 +37,14 @@ const Upload = () => {
 
   const handleUploadClick = async () => {
     if (image) {
+      setLoading(true); // Start loading
       try {
-        const response = await fetch("/api/getImageGallary", {
+        const response = await fetch("/api/postImageGallary", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            code: presentCode,
             base64Image: image,
             caption: caption,
           }),
@@ -60,6 +61,8 @@ const Upload = () => {
       } catch (error) {
         alert("An error occurred while uploading the image.");
         console.error(error);
+      } finally {
+        setLoading(false); // Stop loading
       }
     }
   };
@@ -118,13 +121,13 @@ const Upload = () => {
                 </p>
                 <button
                   onClick={handleUploadClick}
-                  disabled={!image}
+                  disabled={!image || loading}
                   className={`w-full py-2 px-7 self-center mt-6 rounded-xl font-medium ${
-                    image
+                    image && !loading
                       ? "bg-[#963885] text-white hover:bg-[#7a2d6e] transition-all duration-300"
                       : "bg-gray-400 text-gray-700 cursor-not-allowed"
                   }`}>
-                  Upload Image
+                  {loading ? "Uploading..." : "Upload Image"}
                 </button>
               </div>
             </div>

@@ -1,16 +1,34 @@
 import { CiSearch } from "react-icons/ci";
+import { useEffect, useState } from "react"; // Import necessary hooks
 import Card from "./Card";
+
 export default function LA() {
-  let pi = [
-    "/gallery/1.png",
-    "/gallery/2.png",
-    "/gallery/3.png",
-    "/gallery/4.png",
-    "/gallery/5.png",
-    "/gallery/6.png",
-    "/gallery/7.png",
-    "/gallery/4.png",
-  ];
+  const [images, setImages] = useState([]); // State to hold the fetched images
+
+  // Fetch random images from the backend
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch("/api/rendomImage", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch images");
+        }
+
+        const data = await response.json();
+        setImages(data); // Store the fetched images in the state
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages(); // Fetch the images on component mount
+  }, []); // Empty dependency array ensures it runs once on mount
 
   return (
     <>
@@ -19,7 +37,7 @@ export default function LA() {
           <div className="p-9">
             <p className="content text-[#F5F5F5]  text-3xl font-bold">
               Top of the week!
-            </p>{" "}
+            </p>
             <p className="font-bold text-[#C0CAD7AB]">
               explore the most viewed...
             </p>
@@ -37,11 +55,12 @@ export default function LA() {
 
       <div className="flex justify-between">
         <div className="popular h-[158px]  flex  px-9 gap">
-          {pi.map((item) => {
-            return <Card li={item} />;
-          })}
+          {/* Map over the fetched images and render the Card component */}
+          {images.map((item, index) => (
+            <Card key={index} li={item.base64Image} /> // Pass base64Image to Card
+          ))}
         </div>
-        <div className=" ml-3 rounded-3xl px-6 mr-[6.5rem] py-4 subscription h-[158px] w-[395px] bg-[#393B70]     ">
+        <div className=" ml-3 rounded-3xl px-6 mr-[6.5rem] py-4 subscription h-[158px] w-[395px] bg-[#393B70]">
           <h1 className="text-[#fff]">Subscribe to Premium</h1>
           <p className="text-[#8E94A9]">
             Subscribe to unlock new features and if eligible, receive a share of

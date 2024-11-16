@@ -5,7 +5,7 @@ export default function Gallery() {
   return (
     <>
       <div>
-        <Galler code={"wgwsdc"}></Galler>
+        <Galler ></Galler>
       </div>
     </>
   );

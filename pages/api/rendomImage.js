@@ -13,10 +13,13 @@ export default async function handler(req, res) {
       const database = client.db("D2D");
       const collection = database.collection("ImageGallery");
 
-      // Fetch only the fields we need (base64Image and caption)
-      const allData = await collection.find({}, { projection: { base64Image: 1, caption: 1 } }).toArray();
+      // Fetch 8 random images with base64Image and caption
+      const randomImages = await collection.aggregate([
+        { $sample: { size: 8 } }, // Randomly sample 8 documents
+        { $project: { base64Image: 1, caption: 1 } } // Select only the fields we need
+      ]).toArray();
 
-      res.status(200).json(allData);
+      res.status(200).json(randomImages);
     } catch (error) {
       res.status(500).json({ message: "Something went wrong!" });
     } finally {
