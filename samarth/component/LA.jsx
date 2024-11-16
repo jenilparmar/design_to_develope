@@ -1,6 +1,15 @@
 import { CiSearch } from "react-icons/ci";
 import { useEffect, useState } from "react"; // Import necessary hooks
 import Card from "./Card";
+let pi = [
+  "/gallery/1.png",
+  "/gallery/2.png",
+  "/gallery/3.png",
+  "/gallery/4.png",
+  "/gallery/5.png",
+  "/gallery/6.png",
+  "/gallery/7.png",
+];
 
 export default function LA() {
   const [images, setImages] = useState([]); // State to hold the fetched images
@@ -56,9 +65,9 @@ export default function LA() {
       <div className="flex justify-between">
         <div className="popular h-[158px]  flex  px-9 gap">
           {/* Map over the fetched images and render the Card component */}
-          {images.map((item, index) => (
-            <Card key={index} li={item.base64Image} /> // Pass base64Image to Card
-          ))}
+          {pi.map((item) => {
+            return <Card li={item} />;
+          })}
         </div>
         <div className=" ml-3 rounded-3xl px-6 mr-[6.5rem] py-4 subscription h-[158px] w-[395px] bg-[#393B70]">
           <h1 className="text-[#fff]">Subscribe to Premium</h1>
