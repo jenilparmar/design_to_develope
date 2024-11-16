@@ -19,7 +19,7 @@ export default async function handler(req, res) {
       console.log("Incoming data:", req.body.data);
 
       // Check if all required fields are provided
-      if (!code || !thought || !nameOfRoom) {
+      if (!code  || !nameOfRoom) {
         return res
           .status(400)
           .json({ message: "Missing 'code', 'thought', or 'nameOfRoom'" });

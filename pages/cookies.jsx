@@ -22,19 +22,25 @@ export default function Cookies() {
 
   const handleRemoveCode = (code) => {
     removeCodeFromCookie();
-    alert("Code removed!");
+    alert("Code removed!" + code);
   };
 
   return (
     <div>
       <div className="ml-20 flex flex-col">
-        <button onClick={()=>{
-          handleAddCode("ijkl78")
-        }}>Add Code</button>
+        <button
+          onClick={() => {
+            handleAddCode("ijkl78");
+          }}>
+          Add Code
+        </button>
         <button onClick={handleGetCodes}>Get Codes</button>
-        <button onClick={()=>{
-          handleRemoveCode("sdfgfd")
-        }}>Remove Code</button>
+        <button
+          onClick={() => {
+            handleRemoveCode("FQzUzQ");
+          }}>
+          Remove Code
+        </button>
       </div>
     </div>
   );
