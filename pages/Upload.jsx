@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 const Upload = () => {
   const [codes, setCodes] = useState([]);
   const [activeRoom, setactiveRoom] = useState(null);
-
+  const [presentCode , setPresentCode] = useState(null)
   useEffect(() => {
     const arr = getCodesFromCookie();
     setCodes(arr);
@@ -24,11 +24,11 @@ const Upload = () => {
       </div>
       <div className="flex my-4 flex-row w-7/12 h-96 self-center bg-[#373567]">
         <div className="w-1/2 bg-[#373567]">
-          <UploadThought room={activeRoom} />
+          <UploadThought room={activeRoom} code={presentCode} />
         </div>
         <div className="w-[2px] h-full  self-center  bg-[#53519f]"></div>
         <div className="w-1/2 h-full overflow-y-scroll py-2">
-          <ThoughtRoomList setactiveRoom={setactiveRoom} codes={codes} />
+          <ThoughtRoomList setactiveRoom={setactiveRoom} codes={codes} setPresentCode ={setPresentCode} />
         </div>
       </div>
      

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState , useEffect } from "react";
 
-const ChatBox = ({ url, code, setActiveCode , presentCode }) => {
+const UploadBox = ({ url, code, setActiveCode, presentCode }) => {
   const [name, setName] = useState(null);
   useEffect(() => {
-
     const fetchThoughts = async () => {
       try {
         const response = await fetch("/api/getThought", {
@@ -11,17 +10,17 @@ const ChatBox = ({ url, code, setActiveCode , presentCode }) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ code: code }),
+          body: JSON.stringify({ "code": code }),
         });
 
         if (!response.ok) {
           throw new Error("Failed to fetch thoughts");
         }
-       
+
         const data = await response.json();
 
         setName(data.nameOfRoom);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error fetching thoughts:", error);
       }
@@ -35,7 +34,7 @@ const ChatBox = ({ url, code, setActiveCode , presentCode }) => {
         className="w-full h-fit flex flex-row my-2 hover:bg-[#534fa081] py-2 rounded-xl"
         onClick={() => {
           setActiveCode(name);
-          presentCode(code)
+          presentCode(code);
         }}>
         <div
           className="h-10 w-10 rounded-full self-center "
@@ -51,4 +50,4 @@ const ChatBox = ({ url, code, setActiveCode , presentCode }) => {
   );
 };
 
-export default ChatBox;
+export default UploadBox;
