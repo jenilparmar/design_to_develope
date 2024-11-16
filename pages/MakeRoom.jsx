@@ -5,7 +5,7 @@ const MakeRoom = () => {
   let router = useRouter();
   const [generatedCode, setGeneratedCode] = useState("");
   const [loading, setLoading] = useState(false); // State to track loading
-  const [roomType, setRoomType] = useState(""); // State to track selected room type
+  const [roomType, setRoomType] = useState("Thought Room"); // State to track selected room type
   const [roomName, setRoomName] = useState(""); // State to track the room name
   const [join, setJoin] = useState(null);
   const handleGenerate = async () => {
@@ -61,32 +61,32 @@ const MakeRoom = () => {
 
   return (
     <div className="w-full h-screen bg-[#29274c] flex flex-col justify-center">
-      <div className="bg-[#363462] w-1/3 h-fit self-center flex flex-col justify-start py-5 px-10 gap-4">
+      <div className="bg-[#363462] border-2 border-[#888ee0b0] rounded-2xl  w-1/3 h-fit self-center flex flex-col justify-start py-8 px-10 gap-4">
         <p className="self-center text-white text-center">
           Wanna invite your friends here?
           <br /> Or maybe try joining them!
         </p>
         {/* Room Type Selection */}
         <div className="w-60 flex flex-row justify-center gap-5 text-center self-center text-white">
-          <label className="flex items-center gap-2">
+          <label className=" items-center hidden gap-2">
             <input
               type="radio"
               name="roomType"
               value="Thought Room"
               checked={roomType === "Thought Room"}
               onChange={(e) => setRoomType(e.target.value)}
-              className="accent-white"
+              className="accent-white hidden"
             />
             Thought Room
           </label>
-          <label className="flex items-center gap-2">
+          <label className=" items-center hidden gap-2">
             <input
               type="radio"
               name="roomType"
               value="Image Gallery Room"
               checked={roomType === "Image Gallery Room"}
               onChange={(e) => setRoomType(e.target.value)}
-              className="accent-white"
+              className="accent-white hidden"
             />
             Image Gallery Room
           </label>

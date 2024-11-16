@@ -50,8 +50,11 @@ const Middle = () => {
               <p>Life Is Hard I Am Too</p>
             </div>
           </div>
-          <button className="self-start m-5 px-3 py-1 rounded-xl border-2 border-[#87878d] text-[#87878d] hover:scale-105 transition-all duration-150">
-            Set Up Profile
+          <button
+            className="self-start m-5 px-3 py-1 rounded-xl border-2 border-[#87878d] text-[#87878d] hover:scale-105 transition-all duration-150"
+            onClick={toggleEdit}
+          >
+            {editing ? "Save" : "Set Up Profile"}
           </button>
         </div>
         <div className="ml-20 text-[#87878d]">
@@ -66,14 +69,8 @@ const Middle = () => {
             <p>{description}</p>
           )}
         </div>
-        <button
-          className="ml-20 mt-4 px-3 py-1 rounded-xl border-2 w-14 border-[#87878d] text-[#87878d] hover:scale-105 transition-all duration-150"
-          onClick={toggleEdit}
-        >
-          {editing ? "Save" : "Edit"}
-        </button>
       </div>
-      <div className="flex flex-row justify-evenly gap-4">
+      <div className="flex flex-row justify-evenly gap-4 mt-4">
         <p className="text-[#87878d] text-center hover:border-2 active:scale-95 transition-all duration-150 border-white py-1 px-3 rounded-xl">
           Image Galleries
         </p>
