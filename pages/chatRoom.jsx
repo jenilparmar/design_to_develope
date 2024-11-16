@@ -49,12 +49,6 @@ const ChatRoom = () => {
     fetchThoughts();
   }, [activeCode]);
 
-  // Set the initial activeCode when codes are populated
-  useEffect(() => {
-    if (codes.length > 0) {
-      setActiveCode(codes[0]);
-    }
-  });
 
   return (
     <div className="w-full h-screen bg-[#29274c] flex flex-row justify-between">

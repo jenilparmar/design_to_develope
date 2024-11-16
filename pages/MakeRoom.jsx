@@ -1,12 +1,13 @@
 import { addCodeToCookieArray } from "@/Jenil/Components/addCodeToCookies";
 import React, { useState } from "react";
-
+import { useRouter } from "next/router";
 const MakeRoom = () => {
+  let router = useRouter();
   const [generatedCode, setGeneratedCode] = useState("");
   const [loading, setLoading] = useState(false); // State to track loading
   const [roomType, setRoomType] = useState(""); // State to track selected room type
   const [roomName, setRoomName] = useState(""); // State to track the room name
-
+  const [join, setJoin] = useState(null);
   const handleGenerate = async () => {
     if (roomType !== "Thought Room") {
       alert("Please select 'Thought Room' to generate a code.");
@@ -44,8 +45,7 @@ const MakeRoom = () => {
           data: { code: data.code, thought: "", nameOfRoom: roomName },
         }),
       });
-    
-        
+
       // Log the response details
       const saveResponseData = await saveResponse.json();
       console.log("Save Response Status:", saveResponse.status);
@@ -102,10 +102,18 @@ const MakeRoom = () => {
         {/* Input for Joining */}
         <input
           type="text"
+          onChange={(e) => {
+            setJoin(e.target.value);
+          }}
           placeholder="Paste Code"
           className="h-10 px-2 bg-[#29274c] my-2 border-[1px] border-white text-white w-60 self-center"
         />
-        <button className="bg-white w-fit self-center px-6 rounded-xl">
+        <button
+          onClick={() => {
+            addCodeToCookieArray(join);
+            router.push("/chatRoom");
+          }}
+          className="bg-white w-fit self-center px-6 rounded-xl">
           Join
         </button>
         {/* Input for Generated Code */}
