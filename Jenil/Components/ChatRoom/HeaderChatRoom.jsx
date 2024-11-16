@@ -1,4 +1,4 @@
-import React, { useState  , useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ChatText from "./ChatText";
 
 const HeaderChatRoom = ({ activeCode }) => {
@@ -35,11 +35,11 @@ const HeaderChatRoom = ({ activeCode }) => {
       <div className="flex flex-col">
         <div className="w-full h-fit px-8 py-2 flex flex-row justify-between">
           <div className="">
-            <p className="text-[15px] font-medium text-[#F5F5F5]">
+            <p className="content text-[#F5F5F5]  text-3xl font-bold">
               Top of the week!
             </p>
-            <p className="text-[#C0CAD7] text-[10px]">
-              Explore the most viewed...
+            <p className="font-bold text-[#C0CAD7AB]">
+              explore the most viewed...
             </p>
           </div>
           <div className="flex flex-col-reverse justify-center">
