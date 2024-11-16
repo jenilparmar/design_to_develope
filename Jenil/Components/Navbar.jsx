@@ -56,6 +56,8 @@ const Navbar = () => {
               backgroundSize: "cover",
             }}></div>
         </Link>
+        <Link href={"/MakeRoom"}>
+       
         <div
           className="h-12 w-12 hover:scale-105 active:scale-95 self-center transition-all duration-150"
           style={{
@@ -63,6 +65,7 @@ const Navbar = () => {
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}></div>
+          </Link>
       </div>
     </div>
   );

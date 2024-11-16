@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState  , useEffect} from "react";
 import ChatText from "./ChatText";
 
 const HeaderChatRoom = ({ activeCode }) => {
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    // Fetch the room name based on the code
+    const fetchRoomName = async () => {
+      try {
+        const response = await fetch("/api/giveNameOfRoom", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ code: activeCode }), // Send code in the body
+        });
+        // console.log({ code: name });
+
+        if (!response.ok) {
+          console.log(response);
+        }
+
+        const data = await response.json();
+        setName(data.name); // Update state with room name
+      } catch (error) {
+        console.error("Error fetching room name:", error);
+      }
+    };
+
+    fetchRoomName();
+  }); // Re-run if the code changes
   return (
     <>
       <div className="flex flex-col">
@@ -18,9 +46,7 @@ const HeaderChatRoom = ({ activeCode }) => {
             <p className="self-end mr-4 text-[#fff]">
               {(activeCode + "").toLocaleLowerCase()}
             </p>
-            <p className="text-[#f5f5f5e2] font-medium mr-4">
-              Chutur Putur Masale
-            </p>
+            <p className="text-[#f5f5f5e2] font-medium mr-4">{name}</p>
           </div>
         </div>
         <div className="w-full h-fit py-2 flex flex-row justify-between px-8">

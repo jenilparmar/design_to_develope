@@ -1,12 +1,7 @@
-
 import React, { useEffect, useState } from "react";
 import ChatBox from "./ChatBox";
 
-
-const TableOfChats = ({codes  , setActiveCode}) => {
-  
-
-
+const TableOfChats = ({ codes, setActiveCode }) => {
   return (
     <div className="w-2/12 h-screen ml-20 border-r-2 border-[#a2a3bb28] overflow-y-scroll flex flex-col px-3 py-6">
       <input type="text" className="hidden" />
@@ -18,7 +13,7 @@ const TableOfChats = ({codes  , setActiveCode}) => {
         codes.map((code, index) => (
           <ChatBox
             key={index}
-            setActiveCode = {setActiveCode}
+            setActiveCode={setActiveCode}
             url={
               "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             }

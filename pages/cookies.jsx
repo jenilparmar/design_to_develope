@@ -30,7 +30,7 @@ export default function Cookies() {
       <div className="ml-20 flex flex-col">
         <button
           onClick={() => {
-            handleAddCode("ijkl78");
+            handleAddCode("wgwsdc");
           }}>
           Add Code
         </button>

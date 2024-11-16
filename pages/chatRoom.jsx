@@ -38,7 +38,7 @@ const ChatRoom = () => {
         const data = await response.json();
 
         setThoughtsArray(data.Thoughts);
-        console.log(data);
+        // console.log(data);
 
         setLoading(false);
       } catch (error) {
@@ -54,7 +54,7 @@ const ChatRoom = () => {
     if (codes.length > 0) {
       setActiveCode(codes[0]);
     }
-  }, [codes]);
+  });
 
   return (
     <div className="w-full h-screen bg-[#29274c] flex flex-row justify-between">
