@@ -41,14 +41,14 @@ export default function LA() {
             return <Card li={item} />;
           })}
         </div>
-        <div className=" ml-3 rounded-3xl px-6 mr-[6.2rem] py-4 subscription h-[158px] w-[395px] bg-[#393B70]     ">
+        <div className=" ml-3 rounded-3xl px-6 mr-[6.5rem] py-4 subscription h-[158px] w-[395px] bg-[#393B70]     ">
           <h1 className="text-[#fff]">Subscribe to Premium</h1>
           <p className="text-[#8E94A9]">
             Subscribe to unlock new features and if eligible, receive a share of
             revenue.
           </p>
           <button
-            className="h-9 w-[71px] text-[14px] rounded-full text-white absolute right-52
+            className="h-9 w-[71px] text-[14px] rounded-full text-white absolute mt-3 right-36
              bg-gradient-to-r from-[#C19A51] to-[#5B4926]
              hover:from-[#D2A966] hover:to-[#6B5530]
              hover:shadow-2xl transition-all duration-500 ease-in-out"
