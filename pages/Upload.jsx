@@ -34,10 +34,33 @@ const Upload = () => {
     }
   };
 
-  const handleUploadClick = () => {
+  const handleUploadClick = async () => {
     if (image) {
-      console.log("Base64 Image String:", image);
-      console.log("Caption:", caption);
+      try {
+        const response = await fetch("/api/getImageGallary", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            code: presentCode,
+            base64Image: image,
+            caption: caption,
+          }),
+        });
+
+        if (response.ok) {
+          alert("Image and caption uploaded successfully!");
+          setImage(null); // Clear the uploaded image
+          setCaption(""); // Clear the caption
+        } else {
+          const errorData = await response.json();
+          alert(`Failed to upload: ${errorData.message}`);
+        }
+      } catch (error) {
+        alert("An error occurred while uploading the image.");
+        console.error(error);
+      }
     }
   };
 
@@ -49,16 +72,14 @@ const Upload = () => {
           className={`hover:bg-[#963885] px-4 py-1 rounded-2xl transition-all duration-300 ${
             section === "Thought" ? "bg-[#963885]" : ""
           }`}
-          onClick={() => setSection("Thought")}
-        >
+          onClick={() => setSection("Thought")}>
           Thought
         </p>
         <p
           className={`hover:bg-[#963885] px-4 py-1 rounded-2xl transition-all duration-300 ${
             section === "Image" ? "bg-[#963885]" : ""
           }`}
-          onClick={() => setSection("Image")}
-        >
+          onClick={() => setSection("Image")}>
           Image
         </p>
       </div>
@@ -82,7 +103,9 @@ const Upload = () => {
                 />
               </div>
               <div className="flex flex-col justify-evenly">
-                <label className="text-white mb-2">Caption (Max 25 words):</label>
+                <label className="text-white mb-2">
+                  Caption (Max 25 words):
+                </label>
                 <textarea
                   value={caption}
                   onChange={handleCaptionChange}
@@ -100,8 +123,7 @@ const Upload = () => {
                     image
                       ? "bg-[#963885] text-white hover:bg-[#7a2d6e] transition-all duration-300"
                       : "bg-gray-400 text-gray-700 cursor-not-allowed"
-                  }`}
-                >
+                  }`}>
                   Upload Image
                 </button>
               </div>
