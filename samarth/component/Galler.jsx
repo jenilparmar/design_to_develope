@@ -32,7 +32,7 @@ export default function Galler({ code }) {
 
   return (
     <div className="ml-20 bg-[#29274c] h-screen">
-      <div className="fixed z-30 bg-[#29274c] shadow-2xl">
+      <div className="fixed z-30 w-full bg-[#29274c] shadow-2xl">
         <Top />
       </div>
       <div>
