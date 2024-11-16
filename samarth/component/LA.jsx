@@ -9,6 +9,7 @@ let pi = [
   "/gallery/5.png",
   "/gallery/6.png",
   "/gallery/7.png",
+  "/gallery/1.png",
 ];
 
 export default function LA() {
