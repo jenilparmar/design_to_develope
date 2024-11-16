@@ -8,49 +8,50 @@
 import { MongoClient } from "mongodb";
 
 export default async function handler(req, res) {
-    if (req.method === "POST") {
-        try {
-            const { code, base64Image } = req.body.data;
-            console.log("MongoDB URI:", process.env.MONGODB_URI); // For debugging purposes only
+  if (req.method === "POST") {
+    const { base64Image, caption } = req.body;
 
-            // Check if both `code` and `base64Image` are provided
-            if (!code || !base64Image) {
-                return res.status(400).json({ message: "Missing 'code' or 'base64Image'" });
-            }
-
-            // MongoDB client setup
-            const client = new MongoClient(process.env.MONGODB_URI, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            });
-
-            try {
-                // Connect to the MongoDB database
-                await client.connect();
-
-                // Access the specified database and collection
-                const database = client.db("D2D");
-                const collection = database.collection("ImageGallery");
-
-                // Update the document with the matching 'code', pushing the new base64Image to the `base64Images` array
-                const result = await collection.updateOne(
-                    { code: code },
-                    { $push: { base64Images: base64Image } },
-                    { upsert: true } // Creates a new document if no matching code is found
-                );
-
-                // Send a success response
-                res.status(201).json({ message: "Data saved successfully!", result });
-            } finally {
-                // Close the MongoDB connection
-                await client.close();
-            }
-        } catch (error) {
-            console.error("Error saving data:", error);
-            res.status(500).json({ message: "Something went wrong!" });
-        }
-    } else {
-        // Handle non-POST requests
-        res.status(405).json({ message: "Method not allowed" });
+    // Validate required fields
+    if (!base64Image || !caption) {
+      return res.status(400).json({
+        message: "Missing 'base64Image' or 'caption' in the request body.",
+      });
     }
+
+    const client = new MongoClient(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    try {
+      // Connect to the database
+      await client.connect();
+      console.log("Connected to MongoDB");
+
+      const database = client.db("D2D");
+      const collection = database.collection("ImageGallery");
+
+      // Insert the new image and caption as a new document
+      const insertResult = await collection.insertOne({
+        base64Image,
+        caption,
+        createdAt: new Date(), // Optional: Add timestamp for when the image is added
+      });
+
+      console.log("Insert Result:", insertResult);
+
+    
+      res
+        .status(200)
+        .json({ message: "Image and caption saved successfully!" });
+    } catch (error) {
+      console.error("Error connecting to MongoDB or inserting data:", error);
+      res.status(500).json({ message: "Something went wrong!" });
+    } finally {
+      await client.close();
+      console.log("MongoDB connection closed");
+    }
+  } else {
+    res.status(405).json({ message: "Method not allowed!" });
+  }
 }
