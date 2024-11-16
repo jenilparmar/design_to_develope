@@ -1,10 +1,10 @@
-import Sign from "@/samarth/component/Sign";
+import Log from "@/samarth/component/Log";
 
-export default function Signup() {
+export default function login() {
   return (
     <div className="bg-[#29274c] w-screen h-screen flex justify-center align items-center">
       <div>
-        <Sign></Sign>
+        <Log></Log>
       </div>
     </div>
   );

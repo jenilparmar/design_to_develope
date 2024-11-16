@@ -2,6 +2,7 @@ import { GoPerson } from "react-icons/go";
 import { CiMail } from "react-icons/ci";
 import { IoLockClosedOutline } from "react-icons/io5";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import Link from "next/link";
 
 export default function Sign() {
   return (
@@ -21,8 +22,14 @@ export default function Sign() {
       <div className="absolute inset-0 flex flex-col items-start justify-center ml-9 space-y-6 text-white px-2 py-12">
         {/* Navigation Links */}
         <div className="text-sm mb-6">
-          <span className="text-gray-400">Sign Up </span>/{" "}
-          <span className=" font-bold">Log In</span>
+          <Link href={"/signup"}>
+            {" "}
+            <span className="text-gray-400">Sign Up </span>/{" "}
+          </Link>
+          <Link href={"/login"}>
+            {" "}
+            <span className=" font-bold">Log In</span>
+          </Link>
         </div>
 
         <div className="space-y-4 max-w-xs">
