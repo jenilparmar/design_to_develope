@@ -1,78 +1,53 @@
 import Top from "./LA";
-
 import Card2 from "./Card2";
-let image = [
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-  "/gallery/1.png",
-  "/gallery/2.png",
-  "/gallery/3.png",
-  "/gallery/4.png",
-  "/gallery/5.png",
-  "/gallery/6.png",
-  "/gallery/7.png",
-];
+import { useEffect, useState } from "react";
 
-export default function Galler() {
+export default function Galler({ code }) {
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await fetch("/api/getImageGallary", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ code }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch images");
+        }
+
+        const data = await response.json();
+        setImages(data.base64Images);
+      } catch (error) {
+        console.error("Error fetching images:", error);
+      }
+    };
+
+    fetchImages();
+  }, [code]); // Runs when the component mounts or `code` changes
+
   return (
-    <div className="ml-20 bg-[#29274c]  h-screen  ">
-      <div className=" fixed z-30 bg-[#29274c] shadow-2xl">
+    <div className="ml-20 bg-[#29274c] h-screen">
+      <div className="fixed z-30 bg-[#29274c] shadow-2xl">
         <Top />
       </div>
-      <div className="  ">
+      <div>
         <div className="h-36"></div>
         <div className="h-44"></div>
-        <div className="pins bg-[#29274c] px-9">
-          {image.map((item) => {
-            return <Card2 li={item} key={item} />;
-          })}
+        <div className="pins bg-[#29274c] px-9 grid grid-cols-3 gap-4">
+          {images.map((item, index) => (
+            <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+              <img
+                src={`${item}`}
+                alt={`Gallery item ${index + 1}`}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          ))}
         </div>
       </div>
     </div>
