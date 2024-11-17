@@ -3,6 +3,7 @@ import HeaderChatRoom from "@/Jenil/Components/ChatRoom/HeaderChatRoom";
 import TableOfChats from "@/Jenil/Components/ChatRoom/TableOfChats";
 import Thoughts from "@/Jenil/Components/ChatRoom/Thoughts";
 import { getCodesFromCookie } from "@/Jenil/Components/addCodeToCookies";
+import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 
 const ChatRoom = () => {
@@ -11,6 +12,13 @@ const ChatRoom = () => {
   const [thoughtsArray, setThoughtsArray] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    let user = Cookies.get("email");
+    if (user !== "authentication-true") {
+      alert("Please Signup first!");
+      window.location.href = "/signup";
+    }
+  }, []);
   useEffect(() => {
     const arr = getCodesFromCookie();
     setCodes(arr);
@@ -48,7 +56,6 @@ const ChatRoom = () => {
 
     fetchThoughts();
   }, [activeCode]);
-
 
   return (
     <div className="w-full h-screen bg-[#29274c] flex flex-row justify-between">

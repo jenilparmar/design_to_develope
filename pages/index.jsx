@@ -1,6 +1,4 @@
-
 import localFont from "next/font/local";
-
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,8 +14,7 @@ const geistMono = localFont({
 export default function Home() {
   return (
     <>
-   
-    <div className="flex flex-col w-screen h-screen bg-[#29274c]"></div>
+      <div className="flex flex-col w-screen h-screen bg-[#29274c]"></div>
     </>
   );
 }
